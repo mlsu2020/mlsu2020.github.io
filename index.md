@@ -33,17 +33,8 @@ This is the overall algorithm we used:
 1. Pre-processing
     * Crop the image to its bottom 2/3rds to ignore the sky and focus on the road.
     * Apply histogram equalization to make the road stand out from the road edges and car hood.
-    * Blur the image to even-out the rocky appearance of the road
-
-<div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;">
-<img src="images/dbscan_preprocessing.png" width="80%">
-</div>
-
-2. Run DBSCAN to get cluster labels. We used the 3rd largest distance from a [K-NN](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html) search for DBSCAN's epsilon parameter.<sup><a href="#ref1">[1]</a></sup>
-
-<div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;">
-<img src="images/dbscan_output.png" width="60%">
-</div>
+    * Blur the image to even-out the rocky appearance of the road <div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;"><img src="images/dbscan_preprocessing.png" width="80%"></div>
+2. Run DBSCAN to get cluster labels. We used the 3rd largest distance from a [K-NN](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html) search for DBSCAN's epsilon parameter.<sup><a href="#ref1">[1]</a></sup><div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;"><img src="images/dbscan_output.png" width="60%"></div>
 
 3. Use connected component analysis and a 2D Gaussian to select the cluster that has many points in the center of the image, where we assume the road to be.
 
