@@ -16,13 +16,7 @@ Our dataset consisted of images from Georgia Tech's [AutoRally Project](https://
 ## Methods
 Our project took the following approach to classifying whether the autorally car should turn left, right, or go straight:
 
-1. Generate a reduced representation of the road scene by segmenting the road from the image. A car's traversable space is limited by the shape of the road they're on, so we figured the **road map** would provide clear training data for a neural network.
-
-<div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;">
-  <img src="images/img47.png" width="40%">
-  <img src="images/img47_o.png" width="40%">
-</div>
-
+1. Generate a reduced representation of the road scene by segmenting the road from the image. A car's traversable space is limited by the shape of the road they're on, so we figured the **road map** would provide clear training data for a neural network. <div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;"><img src="images/img47.png" width="40%"><img src="images/img47_o.png" width="40%"></div>
 2. <div style="color: red; display: inline">Use dynamics data to label each image as going left, right, or straight. @Jacob can you expand on this? Either here or in your section.</div>
 3. <div style="color: red; display: inline">Train a neural network on the labelled images.</div>
 
