@@ -16,9 +16,10 @@ Our dataset consisted of images from Georgia Tech's [AutoRally Project](https://
 ## Methods
 Our project took the following approach to classifying whether the autorally car should turn left, right, or go straight:
 
-1. Generate a reduced representation of the road scene by segmenting the road from the image. A car's traversable space is limited by the shape of the road they're on, so we figured the **road map** would provide clear training data for a neural network. <div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;"><img src="images/img47.png" width="40%"><img src="images/img47_o.png" width="40%"></div>
-2. <div style="color: red; display: inline">Use dynamics data to label each image as going left, right, or straight. @Jacob can you expand on this? Either here or in your section.</div>
-3. <div style="color: red; display: inline">Train a neural network on the labelled images.</div>
+1.  Generate a reduced representation of the road scene by segmenting the road from the image. A car's traversable space is limited by the shape of the road they're on, so we figured the **road map** would provide clear training data for a neural network.
+    <div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;"><img src="images/img47.png" width="40%"><img src="images/img47_o.png" width="40%"></div>
+2.  <div style="color: red; display: inline">Use dynamics data to label each image as going left, right, or straight. @Jacob can you expand on this? Either here or in your section.</div>
+3.  <div style="color: red; display: inline">Train a neural network on the labelled images.</div>
 
 
 ## Road Segmentation
@@ -30,14 +31,15 @@ We looked to two clustering algorithms to help us segment the road from the imag
 We started by trying the [DBSCAN clustering algorithm](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.DBSCAN.html) on the road images. One of the advantages of DBSCAN is that it can determine the number of clusters on its own. This could be helpful in generalized road detection algorithms since we can't always expect there to be consistent lighting conditions.
 
 This is the overall algorithm we used:
-1. Pre-processing
+1.  Pre-processing
     * Crop the image to its bottom 2/3rds to ignore the sky and focus on the road.
     * Apply histogram equalization to make the road stand out from the road edges and car hood.
-    * Blur the image to even-out the rocky appearance of the road <div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;"><img src="images/dbscan_preprocessing.png" width="80%"></div>
-2. Run DBSCAN to get cluster labels. We used the 3rd largest distance from a [K-NN](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html) search for DBSCAN's epsilon parameter.<sup><a href="#ref1">[1]</a></sup><div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;"><img src="images/dbscan_output.png" width="60%"></div>
+    * Blur the image to even-out the rocky appearance of the road
+    <div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;"><img src="images/dbscan_preprocessing.png" width="80%"></div>
+2.  Run DBSCAN to get cluster labels. We used the 3rd largest distance from a [K-NN](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html) search for DBSCAN's epsilon parameter.<sup><a href="#ref1">[1]</a></sup>
+    <div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;"><img src="images/dbscan_output.png" width="60%"></div>
 
 3. Use connected component analysis and a 2D Gaussian to select the cluster that has many points in the center of the image, where we assume the road to be.
-
 <div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;">
 <img src="images/dbscan_cc.png" width="95%">
 </div>
