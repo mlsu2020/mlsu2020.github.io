@@ -1,8 +1,17 @@
-## Welcome to GitHub Pages
+# Road Segmentation and Turn Classification Using Supervised and Unsupervised Learning
 
-You can use the [editor on GitHub](https://github.com/mlsu2020/mlsu2020.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+## Contents
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Introduction
+Some stuff copied over from our project proposal. It needs to be edited since we reduced our project scope, though.
+
+## Road Segmentation Using DBSCAN
+<div>
+  <div style="background-color: blue; float: left">Test1</div>
+  <div style="background-color: red; float: right">Test2</div>
+</div>
+
+## Road Segmentation Using K-Means
 
 ### Markdown
 
