@@ -20,7 +20,7 @@
 7.  <a href="#references">References</a>
 
 ## 1. Introduction
-<a id="#introduction"></a> A successful autonomous vehicle must be able to perceive its environment and use that knowledge to execute its actions. To be more specific, autonomous vehicles need to know how to identify the shape of the road they're on. In this project, we use various machine learning techniques to identify the road from the camera image and the state estimate, and further provides a possible steering direction based on camera images alone.
+<a id="#introduction"></a> A successful autonomous vehicle must be able to perceive its environment and use that knowledge to execute its actions. To be more specific, autonomous vehicles need to know how to identify the shape of the road they're on. In this project, we use various machine learning techniques to identify the road from the camera image and the state estimate, and further predicts a possible steering direction based on camera images alone.
 
 ## Dataset
 <a id="#dataset"></a> Our dataset consisted of images and state information from Georgia Tech's [AutoRally Project](https://autorally.github.io/)<sup><a href="#ref1">[1]</a></sup>, a platform for self-driving vehicle research. Robotic cars from this project record a first-person video the area in front of them while driving around a dirt track. We selected a subset of this dataset which consists of two laps (approximately 90 seconds) of driving data. The driving data consists of images taken from the vehicle's perspective at 40Hz as well as state estimations (such velocities in the vehicles frame and global positions) based on GPS and IMU measurements.
@@ -107,13 +107,13 @@ Input images for the ridge regression model were pre-processed with the followin
 <div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;"><img src="images/preprocessed_input_image.png" width="60%"></div>
 
 #### Ridge Regression Using Camera Image
-<a id="road-segmentation-ridge-1"></a> A naive way to predict the road labels using a regression model is to use the vehicle camera image as input. However, in our experiment, training a ridge regression model based on camera images alone did not generate good predictions. The predicted road labels along with the K-means clustered road labels we used as ground truth for training.
+<a id="road-segmentation-ridge-1"></a> A naive way to predict the road labels using a regression model is to use the vehicle camera image as input. However, in our experiment, training a ridge regression model based on camera images alone did not generate good predictions. The predicted road labels along with the K-means clustered road labels we used as ground truth for training are shown below.
 
 <div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;"><img src="images/without_dynamics3.png" width="80%"></div>
 
 #### Ridge Regression Using Camera Image + Car Dynamics Data
 <a id="road-segmentation-ridge-2"></a> 
-The dynamics of the vehicle tells more than what the vehicle "sees". We augmented the dimension of the data with the AutoRally vehicle's state and control (longitudinal velocity, lateral velocity, yaw rate, yaw position, global x position, and global y position) and (steering angle, wheel speed) respectively in the ridge regression model. The state and control data have a strong correlation with the environment it operates. The state and control are concatenated together with a pre-processed camera image to formulate the input to the regression model, and the K-Means road labels obtained earlier are used as ground truth labels.
+The dynamics of the vehicle tells more than what the vehicle can "see". We augmented the features of our image data with the AutoRally vehicle's state and control (longitudinal velocity, lateral velocity, yaw rate, yaw position, global x position, and global y position) and (steering angle, wheel speed) respectively. As the state and control data have a strong correlation with the environment it operates, the augemented features resulted in better learning. The state and control are concatenated together with a pre-processed camera image to formulate the input to the regression model, and the K-Means road labels obtained earlier are used as ground truth labels.
 
 The closed formulation of ridge regression was used to obtain the weight of the ridged regression model. A cross validation with k-fold was run over a series of regularization variables to find a good value. We trained with 50% of the available AutoRally data, and 10-fold was used among the training data set for the cross validation to find a good ridge parameter. The resulting weight is used to predict the road labels with given input consisting of the preprocessed image, state and control.
 
