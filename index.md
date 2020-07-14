@@ -94,9 +94,9 @@ Labels for the training and validation datasets were generated automatically usi
 
 #### Validation Examples
 
-We demonstrate the classification results on a sample of validation images. Although the network takes the segmented images as the inputs, we display the raw, unsegmented images for easy visual inspection.
+We demonstrate the classification results on a sample of validation images. Although the network takes the segmented images as the inputs, we display the raw, unsegmented images for easy visual inspection. The predicted and ground truth labels are displayed for each image. There is one failure case in these examples where a straight was incorrectly labeled as a right turn.
 
-<div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;"><img src="images/image_examples2.png" width="100%"></div>
+<div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;"><img src="images/image_examples4.png" width="100%"></div>
 
 ## Conclusion
 
@@ -109,6 +109,7 @@ We demonstrate the classification results on a sample of validation images. Alth
 ### Jaein Lim
 
 ### Phong Tran
+
 
 ## References.
 1. <a id="ref1" href="https://iopscience.iop.org/article/10.1088/1755-1315/31/1/012012/pdf" style="display: inline">Determination of Optimal Epsilon Value on
