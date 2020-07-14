@@ -132,7 +132,7 @@ We demonstrate the classification results on a sample of validation images. Alth
 ## Group Member Contributions
 
 ### Abdulaziz Qwbaiban
-This is a test
+
 ### Jacob Knaup
 
 ### Jaein Lim
