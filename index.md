@@ -72,7 +72,7 @@ We chose to use a neural network to perform image classification on the segmente
 
 ### Network Architecture
 
-<div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;"><img src="images/image_class_net.png" width="85%"></div>
+<div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;"><img src="images/image_class_net.png" width="30%"></div>
 
 ### Results
 #### Training and Validation Accuracy
@@ -85,7 +85,7 @@ We trained the network for 20 epochs using the Adam optimizer using a cross entr
 
 We demonstrate the classification results on a sample of validation images. Although the network takes the segmented images as the inputs, we display the raw, unsegmented images for easy visual inspection.
 
-<div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;"><img src="images/image_examples2.png" width="85%"></div>
+<div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;"><img src="images/image_examples2.png" width="100%"></div>
 
 ## Conclusion
 
