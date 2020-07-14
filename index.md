@@ -144,7 +144,7 @@ We demonstrate the classification results on a sample of validation images. Alth
  * Evaluate neural network performance and prepare write-up
 
 ### Jaein Lim
-
+ * Road segmentation using regularaized learning
 ### Phong Tran
 
 
