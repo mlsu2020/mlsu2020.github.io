@@ -20,7 +20,7 @@
 7.  <a href="#references">References</a>
 
 ## 1. Introduction
-<a id="#introduction"></a> Autonomous vehicles need to know how to identify the shape of the road they're on. Then, from that information, they need to know whether they should turn left, right, or go straight. The goal of our project was to create machine learning models that can detect the road and make steering decisions using road images and the car's dynamics as inputs.
+<a id="#introduction"></a> A successful autonomous vehicle must be able to perceive its environment and use that knowledge to execute its actions. To be more specific, autonomous vehicles need to know how to identify the shape of the road they're on. In this project, we use various machine learning techniques to identify the road from the camera image and the state estimate, and further provides a possible steering direction based on camera images alone.
 
 ## Dataset
 <a id="#dataset"></a> Our dataset consisted of images and state information from Georgia Tech's [AutoRally Project](https://autorally.github.io/)<sup><a href="#ref1">[1]</a></sup>, a platform for self-driving vehicle research. Robotic cars from this project record a first-person video the area in front of them while driving around a dirt track. We selected a subset of this dataset which consists of two laps (approximately 90 seconds) of driving data. The driving data consists of images taken from the vehicle's perspective at 40Hz as well as state estimations (such velocities in the vehicles frame and global positions) based on GPS and IMU measurements.
