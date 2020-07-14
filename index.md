@@ -87,7 +87,7 @@ The predicted road segmentations are overlayed on top of the input image, and th
 
 ### Regression without dynamics 
 The camera image soley was used to train the same regression model without the dynamics to emphasize the importance of dyanmics. The same preprocessing and the same regularization parameter, and the same training data set were chosen. However, the predictions were poor in general. This tells that the dynamics of the vehicle contains crucial information of the environment it learns. 
-<div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 50%;"><img src="images/without_dynamics_true.png" width="100%"></div>
+<div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;"><img src="images/without_dynamics_true.png" width="50%"></div>
 
 
 ## Supervised Turn Classification
