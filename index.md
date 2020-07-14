@@ -138,6 +138,11 @@ We demonstrate the classification results on a sample of validation images. Alth
 
 ### Jacob Knaup
 
+ * Prepare dataset images and state data
+ * Generate labels for training neural network
+ * Implement classification neural network in PyTorch
+ * Evaluate neural network performance and prepare write-up
+
 ### Jaein Lim
 
 ### Phong Tran
