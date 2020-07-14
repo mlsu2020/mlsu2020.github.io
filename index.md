@@ -86,9 +86,11 @@ The output class scores are then fed into a softmax function for training which 
 
 We trained the network for 20 epochs using the Adam optimizer using a cross entropy loss function. The cross entropy loss incorporates softmax which assigns a probability of the image belonging to each class based on the relative scores of the three output channels. The optimier then adjusts the layer weights to maximize the relative scores of the correct classes. We reserved one third of our dataset for validation to prevent overfitting, and plotted the training and validation accuracies for each epoch. We reach about 96% accuracy on the training data and 87% on the validation set.
 
-The training and validation datasets were generated automatically using the vehicle states information accompanying the images. We filtered the vehicle's yaw velocity and then thresholded it to fall into one of three classes: right turns, straights, or left turns. The thresholded yaw velocity at the time each image was captured was used to provide the image labels for supervised learning.
-
 <div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;"><img src="images/training_acc1.png" width="80%"></div>
+
+Labels for the training and validation datasets were generated automatically using the vehicle states information accompanying the images. We filtered the vehicle's yaw velocity and then thresholded it to fall into one of three classes: right turns, straights, or left turns. The thresholded yaw velocity at the time each image was captured was used to provide the image labels for supervised learning. The classifications along with the measured yaw orientation are displayed below.
+
+<div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;"><img src="images/labeling.png" width="50%"></div>
 
 #### Validation Examples
 
