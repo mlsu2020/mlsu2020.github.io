@@ -100,6 +100,16 @@ We demonstrate the classification results on a sample of validation images. Alth
 
 ## Conclusion
 
+## Group Member Contributions
+
+### Abdulaziz Qwbaiban
+
+### Jacob Knaup
+
+### Jaein Lim
+
+### Phong Tran
+
 ## References.
 1. <a id="ref1" href="https://iopscience.iop.org/article/10.1088/1755-1315/31/1/012012/pdf" style="display: inline">Determination of Optimal Epsilon Value on
 DBSCAN Algorithm to Clustering Data on
