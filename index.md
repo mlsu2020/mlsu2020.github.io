@@ -72,7 +72,7 @@ We chose to use a neural network to perform image classification on the segmente
 
 ### Network Architecture
 
-<div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;"><img src="images/image_class_net.png" width="30%"></div>
+<div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;"><img src="images/image_class_net.png" width="10%"></div>
 
 ### Results
 #### Training and Validation Accuracy
