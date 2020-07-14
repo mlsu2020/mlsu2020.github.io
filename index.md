@@ -86,9 +86,9 @@ the steering angle and the wheel speed. The closed formulation of ridge regressi
 The predicted road segmentations are overlayed on top of the input image, and the predicted road maps alone are plotted next to the ground truth obtained with the unsupervised learning. 
 
 ### Regression without dynamics 
-The camera image soley was used to train the same regression model without the dynamics to emphasize the importance of dyanmics. The same preprocessing and the same regularization parameter, and the same training data set were chosen. However, the predictions were poor in general. This tells that the dynamics of the vehicle contains crucial information of the environment it learns. 
+The camera image soley was used to train the same regression model without the dynamics to emphasize the importance of dynamics for road segmentation. The same image pre-processing, the same regularization parameter, and the same training data set were chosen. The predictions were poor in general as shown below. 
 <div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;"><img src="images/without_dynamics_true.png" width="50%"></div>
-
+The result conveys that the dynamics of the vehicle contains crucial information of the environment it learns. 
 
 ## Supervised Turn Classification
 
