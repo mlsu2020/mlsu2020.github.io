@@ -9,8 +9,8 @@
         * <a href="#road-segmentation-dbscan">DBSCAN</a>
         * <a href="#road-segmentation-kmeans">K-Means</a>
     2. <a href="#road-segmentation-reg">Road Segmentation Using Regularaized Learning</a>
-        * <a href="#road-segmentation-ridge-1">Ridge Regression Using Road Maps, Alone</a>
-        * <a href="#road-segmentation-ridge-2">Ridge Regression Using Road Maps + Car Dynamics Data</a>
+        * <a href="#road-segmentation-ridge-1">Ridge Regression Using Camera Image, Alone</a>
+        * <a href="#road-segmentation-ridge-2">Ridge Regression Using Camera Image + Car Dynamics Data</a>
 5.  <a href="#supervised-turn-classification">Supervised Turn Classification</a>
     1. <a href="#supervised-labels">Ground Truth Steering Labels Generation</a>
     2. <a href="#supervised-dt">Decision Tree Classification</a>
