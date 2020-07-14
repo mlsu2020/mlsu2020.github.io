@@ -117,7 +117,7 @@ The dynamics of the vehicle tells more than what the vehicle "sees". We augmente
 
 The closed formulation of ridge regression was used to obtain the weight of the ridged regression model. A cross validation with k-fold was run over a series of regularization variables to find a good value. We trained with 50% of the available AutoRally data, and 10-fold was used among the training data set for the cross validation to find a good ridge parameter. The resulting weight is used to predict the road labels with given input consisting of the preprocessed image, state and control.
 
-<div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;"><img src="images/predicted_with_dynamics.png" width="80%"></div>
+<div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;"><img src="images/predicted_with_dynamics2.png" width="80%"></div>
 
 The predicted road segmentations are overlayed on top of the input image, and the predicted road maps alone are plotted next to the ground truth obtained with the unsupervised learning. 
 
