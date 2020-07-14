@@ -24,7 +24,7 @@ Our project took the following approach to classifying whether the autorally car
 1.  Generate a reduced representation of the road scene by segmenting the road from the image. A car's traversable space is limited by the shape of the road they're on, so we figured the **road map** would provide clear training data for a neural network.
     <div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;"><img src="images/img47.png" width="40%"><img src="images/img47_o.png" width="40%"></div>
 2.  Use dynamics data to label each image as going left, right, or straight. This is done by filtering and thresholding the vehicle's yaw velocity at the time each image was captured to determine the direction the car was turning.
-3.  Train a neural network on the labelled images to classify the segmented road maps to the correct road segment types (right turn, straight, or left turn).</div>
+3.  Train a neural network on the labelled images to classify the segmented road maps to the correct road segment types (right turn, straight, or left turn).
 
 
 ## Road Segmentation
