@@ -6,7 +6,12 @@
 Autonomous vehicles need to know if they should be turn left, right, or go straight. The goal of our project was to create a machine learning model that can make these classifications based on road images.
 
 ## Dataset
-Our dataset consisted of images from Georgia Tech's [AutoRally Project](https://autorally.github.io/), a platform for self-driving vehicle research. Robotic cars from this project record the area in front of them while driving around a dirt track.
+Our dataset consisted of images and state information from Georgia Tech's [AutoRally Project](https://autorally.github.io/), a platform for self-driving vehicle research. Robotic cars from this project record a first-person video the area in front of them while driving around a dirt track. We selected a subset of this dataset which consists of two laps (approximately 90 seconds) of driving data. The driving data consists of images taken from the vehicle's perspective at 40Hz as well as state estimations (such velocities in the vehicles frame and global positions) based on GPS and IMU measurements.
+
+Below we display the state estimates for the longitudinal velocity, lateral velocity, yaw rate, front and rear wheel speeds, yaw orientation, and global X and Y positions over the 2 laps of driving data selected for the prject. We also display a couple of sample images. 
+
+<div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;"><img src="images/states.png" width="100%"></div>
+
 
 <div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;">
   <img src="images/img47.png" width="40%">
