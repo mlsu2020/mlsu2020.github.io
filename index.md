@@ -79,10 +79,16 @@ Predicting the road segmentation is important in real time application, as it pr
 3. Apply principal component anlaysis to attain 99.5% variance.
 <div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;"><img src="images/preprocessed_input_image.png" width="60%"></div>
 
-The state includes longitudinal velocity, lateral velocity, yaw rate, yaw position, global x position, and global y position. The control includes
-the steering angle and the wheel speed. 
+The state $x$ has
+$$ x = [vx,vy,r,\psi, x,y],$$ where the variables are longitudinal velocity, lateral velocity, yaw rate, yaw position, global x position, and global y position respectively. The control $u$ includes
+$$u = [\theta, w],$$ where $\theta$ is the steering angle, and $w$ is the wheel speed. 
 
-The closed formulation of ridge regression was used to obtain the weight of the ridged regression. A cross validation with k-fold was run over a series of regularization variables to find a good value. We trained with 50% of the available AutoRally data, and 10-fold was used among the training data set for the cross validation. The resulting weight is used to predict the road labels with given input consisting of the preprocessed image, state and control.
+The closed formulation of ridge regression was used to obtain the weight $\theta$,
+$$ \theta = (X^T X + \lambda I)^{-1} X^T Y, $$
+where $X\in \mathcal{R}^{N \times D}$ are $N$ input data with $D$ features and $Y \in \mathcal{R}^{N \times M}$ are $N$ road labels flattened. 
+
+A cross validation with k-fold was run over a series of $\lambda$ to find a good $\lambda$ value. We trained with 50% of the available AutoRally data, and 10-fold was used among the training data set for the cross validation. The resulting weight is used to predict the road labels as 
+$$ Y_\textrm{pred} = \theta X. $$
 
 <div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;"><img src="images/predicted_with_dynamics.png" width="100%"></div>
 The predicted road segmentations are overlayed on top of the input image, and the predicted road maps alone are plotted next to the ground truth obtained with the unsupervised learning. 
@@ -99,6 +105,17 @@ The camera image soley was used to train the same regression model without the d
 Labels for the training and validation datasets were generated automatically using the vehicle states information accompanying the images. We filtered the vehicle's yaw velocity and then thresholded it to fall into one of three classes: right turns, straights, or left turns. The thresholded yaw velocity at the time each image was captured was used to provide the image labels for supervised learning. The classifications along with the measured yaw orientation are displayed below.
 
 <div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;"><img src="images/labeling.png" width="50%"></div>
+
+### Decision Tree Classification
+
+We started by using decision trees to conduct image classification on the segmented road map images. The decision tree recognizes every pixel as a feature for its tree generation process. This has turned into one of the main reasons that deciisions trees may not perform well in image classification problems. The library used was sklearn where tree has min_samples_split as a parameter to determine the minimum number of samples to split a leaf. The value assigned here is min_samples_split = 30, after trying multiple values. The output from this tree is a label (straight, right, or left).
+
+## Results
+
+The decision tree achieved only a 37.15% accuracy, which is not good. Thus, the team has decided to move with more sophisticated classifiers such as Neural Networks to achieve better results. The figure below shows a random a sample of the results.
+
+
+<div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;"><img src="images/Decision_tree_turn_classifier.png" width="17%"></div>
 
 ### Neural Network Architecture
 
