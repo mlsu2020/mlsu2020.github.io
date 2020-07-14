@@ -79,16 +79,10 @@ Predicting the road segmentation is important in real time application, as it pr
 3. Apply principal component anlaysis to attain 99.5% variance.
 <div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;"><img src="images/preprocessed_input_image.png" width="60%"></div>
 
-The state $x$ has
-$$ x = [vx,vy,r,\psi, x,y],$$ where the variables are longitudinal velocity, lateral velocity, yaw rate, yaw position, global x position, and global y position respectively. The control $u$ includes
-$$u = [\theta, w],$$ where $\theta$ is the steering angle, and $w$ is the wheel speed. 
+The state includes longitudinal velocity, lateral velocity, yaw rate, yaw position, global x position, and global y position. The control includes
+the steering angle and the wheel speed. 
 
-The closed formulation of ridge regression was used to obtain the weight $\theta$,
-$$ \theta = (X^T X + \lambda I)^{-1} X^T Y, $$
-where $X\in \mathcal{R}^{N \times D}$ are $N$ input data with $D$ features and $Y \in \mathcal{R}^{N \times M}$ are $N$ road labels flattened. 
-
-A cross validation with k-fold was run over a series of $\lambda$ to find a good $\lambda$ value. We trained with 50% of the available AutoRally data, and 10-fold was used among the training data set for the cross validation. The resulting weight is used to predict the road labels as 
-$$ Y_\textrm{pred} = \theta X. $$
+The closed formulation of ridge regression was used to obtain the weight of the ridged regression. A cross validation with k-fold was run over a series of regularization variables to find a good value. We trained with 50% of the available AutoRally data, and 10-fold was used among the training data set for the cross validation. The resulting weight is used to predict the road labels with given input consisting of the preprocessed image, state and control.
 
 <div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;"><img src="images/predicted_with_dynamics.png" width="100%"></div>
 The predicted road segmentations are overlayed on top of the input image, and the predicted road maps alone are plotted next to the ground truth obtained with the unsupervised learning. 
